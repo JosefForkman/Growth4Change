@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+    @foreach($sponsors as $sponsor)
+        <h2><a href="{{$sponsor->link}}" target="_blank">{{$sponsor->name}}</a></h2>
+        {!! $sponsor->description !!}
+    @endforeach
+</body>
+</html>
