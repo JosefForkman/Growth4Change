@@ -8,7 +8,16 @@
     <title>Home</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{url('home')}}">Home</a></li>
+                <li><a href="{{url('welcome')}}">welcome</a></li>
+            </ul>
+        </nav>
+    </header>
     @foreach($sponsors as $sponsor)
+        <img src="{{$sponsor->getFirstMediaUrl()}}"/>
         <h2><a href="{{$sponsor->link}}" target="_blank">{{$sponsor->name}}</a></h2>
         {!! $sponsor->description !!}
     @endforeach
