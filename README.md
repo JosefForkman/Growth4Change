@@ -6,8 +6,13 @@
 
 #### Issues
 
--   Add and set this value to "false" in settings.json if Intelephense throws the "undefined" error on all types:
-    `  "intelephense.diagnostics.undefinedTypes": false,`
+-   Add and set these values to "false" in settings.json if Intelephense throws the "undefined" error on all types, varibles and functions:
+
+    ```
+    "intelephense.diagnostics.undefinedTypes": false,
+    "intelephense.diagnostics.undefinedFunctions": false,
+    "intelephense.diagnostics.undefinedMethods": false,
+    ```
 
 -   In order to make image upload work in Filament during development, add the path to your local host in the .env file:
     `APP_URL=http://127.0.0.1:8000` (Replace with your actual path). The run `php artisan storage:link`.
