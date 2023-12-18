@@ -14,11 +14,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* The five main pages ---> */
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index', ['page' => 'HOME/ABOUT']);
 });
+
+Route::get('ecosystem', function () {
+    return view('pages.ecosystem', ['page' => 'ECOSYSTEM']);
+});
+
+Route::get('food-is-politics', function () {
+    return view('pages.food-is-politics', ['page' => 'FOOD IS POLITICS']);
+});
+
+Route::get('resources', function () {
+    return view('pages.resources', ['page' => 'RESOURCES']);
+});
+
+Route::get('grow-with-us', function () {
+    return view('pages.grow-with-us', ['page' => 'GROW WITH US']);
+});
+
+/* <--- --- --- --- --- ---| */
 
 Route::get('home', function () {
     $sponsors = Sponsor::all();
     return view('home', ['sponsors' => $sponsors]);
 });
+
