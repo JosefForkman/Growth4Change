@@ -7,10 +7,13 @@ use App\Filament\Resources\SponsorResource\RelationManagers;
 use App\Models\Sponsor;
 use Filament\Forms;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -33,6 +36,11 @@ class SponsorResource extends Resource
                     ->placeholder('Link'),
                 RichEditor::make('description')
                     ->placeholder('Description')->columnSpan(2),
+                SpatieMediaLibraryFileUpload::make('image')
+                    ->image()
+                    ->imageEditor()
+                    ->required()
+                    ->columnSpan(2),
             ]);
     }
 
@@ -40,16 +48,17 @@ class SponsorResource extends Resource
     {
         return $table
             ->columns([
+                SpatieMediaLibraryImageColumn::make('image')
+                ->circular(),
                 TextColumn::make('name')
                     ->searchable()
-                    ->sortable(),
-                TextColumn::make('link')
-                    ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->alignCenter(),
                 TextColumn::make('created_at')
                     ->searchable()
                     ->sortable()
-                    ->date('Y-m-d'),
+                    ->date('Y-m-d')
+                    ->alignEnd(),
             ])
             ->filters([
                 //
@@ -59,7 +68,7 @@ class SponsorResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make()
                 ]),
             ]);
     }
