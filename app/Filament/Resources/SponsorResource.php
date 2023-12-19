@@ -39,7 +39,8 @@ class SponsorResource extends Resource
                 SpatieMediaLibraryFileUpload::make('image')
                     ->image()
                     ->imageEditor()
-                    ->required(),
+                    ->required()
+                    ->columnSpan(2),
             ]);
     }
 
