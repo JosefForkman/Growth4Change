@@ -1,7 +1,6 @@
 <?php
 
 $container = '';
-$main = '';
 
 ?>
 
@@ -18,7 +17,7 @@ $main = '';
         @include('includes.header')
     </header>
 
-    <div id="main" class={{$main}}>
+    <div id="main" class='min-h-screen'>
         @yield('content')
     </div>
 
