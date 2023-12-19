@@ -26,6 +26,9 @@ $main = '';
         @include('includes.footer')
     </footer>
 
+    @filamentScripts
+    @vite('resources/js/app.js')
+
 </div>
 
 </body>

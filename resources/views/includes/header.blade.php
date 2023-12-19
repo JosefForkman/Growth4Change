@@ -1,7 +1,7 @@
 <?php
 
 // Holds Tailwind strings.
-$navBar = '';
+$navBar = 'bg-black/50';
 $navBarInner = '';
 $navList = '';
 $navListItem = '';
@@ -19,5 +19,4 @@ $navListItem = '';
         </ul>
     </div>
 </div>
-
 
