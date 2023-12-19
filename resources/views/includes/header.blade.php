@@ -1,5 +1,6 @@
 <?php
 
+// Holds Tailwind strings.
 $navBar = '';
 $navBarInner = '';
 $navList = '';
