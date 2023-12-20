@@ -15,13 +15,10 @@
         @yield('content')
     </div>
 
-    <footer>
-        @include('includes.footer')
-    </footer>
+    @include('includes.footer')
 
     @filamentScripts
     @vite('resources/js/app.js')
-
 </div>
 
 </body>
