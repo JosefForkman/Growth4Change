@@ -2,6 +2,6 @@
 
 @section('content')
 
-    <h1>This is the {{$page}} page</h1>
+    <h1 class="font-body">This is the {{$page}} page</h1>
 
 @stop

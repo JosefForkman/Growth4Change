@@ -5,7 +5,7 @@ $navList = '';
 
 ?>
 
-<div class='bg-growthdarkgrey'>
+<div class='bg-growthdarkgrey p-4'>
     <div class={{$navBarInner}}>
         <ul class='flex justify-between'>
             <li class='text-white font-heading text-3xl'><a href='/'>ABOUT</a></li>
