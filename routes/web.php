@@ -42,4 +42,3 @@ Route::get('home', function () {
     $sponsors = Sponsor::all();
     return view('home', ['sponsors' => $sponsors]);
 });
-
