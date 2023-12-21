@@ -11,8 +11,9 @@
         text-white
         bg-growthdarkgrey
         pt-8
-        px-4
-        md:px-10
+        px-5
+        md:px-11
+        xl:px-16
         pb-10">
 
     <p class="
@@ -37,7 +38,7 @@
         </a>
     </div>
 
-    <div class="flex flex-col items-center md:items-start xl:col-start-2">
+    <div class="flex flex-col items-center md:items-start md:gap-y-4 xl:gap-y-0 xl:col-start-2">
         <h2 class="font-heading text-2xl md:text-3xl xl:text-4xl">Contact Us</h2>
         <a href="mailto:info@growth4change.net" class="font-body text-lg md:text-xl xl:text-2xl">info@growth4change.net</a>
     </div>
