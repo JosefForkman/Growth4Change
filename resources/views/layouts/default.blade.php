@@ -1,31 +1,26 @@
-<?php
-
-$container = '';
-$main = '';
-
-?>
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 @include('includes.head')
 
 <body>
 
-<div class={{$container}}>
+<div id='container'>
 
     <header>
         @include('includes.header')
     </header>
 
-    <div id="main" class={{$main}}>
+    <main class='min-h-screen w-full p-4 md:px-12 md:py-4 xl:px-16 xl:py-6'>
         @yield('content')
-    </div>
+    </main>
 
-    <footer>
-        @include('includes.footer')
-    </footer>
+    @include('includes.footer')
 
+    @filamentScripts
+    @vite('resources/js/app.js')
 </div>
 
 </body>
+
+</html>
