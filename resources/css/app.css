@@ -6,6 +6,6 @@
 @import 'tailwindcss/utilities';
 
 
-footer {
-    grid-template-columns: repeat(3, auto);
-}
+/* footer {
+    grid-template-columns: auto auto auto;
+} */
