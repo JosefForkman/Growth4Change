@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Page;
 use App\Models\Sponsor;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 /* The five main pages ---> */
 
 Route::get('/', function () {
-    return view('pages.index', ['page' => 'HOME/ABOUT', 'title' => 'Growth 4 change - About']);
+    $html = Page::all()->where('title', 'About')->first()->structure;
+    return view('pages.index', ['html' => $html, 'page' => 'HOME/ABOUT', 'title' => 'Growth 4 change - About']);
 });
 
 Route::get('ecosystem', function () {
