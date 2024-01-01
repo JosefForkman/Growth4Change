@@ -1,16 +1,19 @@
-import preset from './vendor/filament/support/tailwind.config.preset'
+import defaultTheme from 'tailwindcss/defaultTheme'
+import forms from '@tailwindcss/forms'
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  presets: [preset],
   content: [
-    './resources/**/*.blade.php',
-    './resources/**/*.js',
-    './resources/**/*.vue',
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+    './storage/framework/views/*.php',
+    './resources/views/**/*.blade.php',
+    './resources/js/**/*.tsx',
   ],
+
   theme: {
     fontFamily: {
-      heading: ['"Bebas Neue"', 'sans-serif'],
-      body: ['"Open Sans"', 'sans-serif'],
+        heading: ['"Bebas Neue"', ...defaultTheme.fontFamily.serif],
+        body: ['"Open Sans"', ...defaultTheme.fontFamily.serif],
     },
     extend: {
       colors: {
@@ -20,5 +23,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [forms],
 }
