@@ -14,26 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* The five main pages ---> */
+/* The start page ---> */
 
 Route::get('/', function () {
     return view('pages.index', ['page' => 'HOME/ABOUT', 'title' => 'Growth 4 change - About']);
 });
 
-Route::get('ecosystem', function () {
-    return view('pages.ecosystem', ['page' => 'ECOSYSTEM', 'title' => 'Growth 4 change - Ecosystem']);
-});
+/* Dynamic routing for webpages cretad in Filament */
 
-Route::get('food-is-politics', function () {
-    return view('pages.food-is-politics', ['page' => 'FOOD IS POLITICS', 'title' => 'Growth 4 change - Food is politics']);
-});
-
-Route::get('resources', function () {
-    return view('pages.resources', ['page' => 'RESOURCES', 'title' => 'Growth 4 change - Resources']);
-});
-
-Route::get('grow-with-us', function () {
-    return view('pages.grow-with-us', ['page' => 'GROW WITH US', 'title' => 'Growth 4 change - Grow with us']);
+Route::get('{slug}', function ($slug) {
+    $page = \App\Models\Page::where('slug', $slug)->firstOrFail();
+    return view('pages.dynamic', ['page' => $page->name, 'title' => 'Growth 4 change - ' . $page->name]);
 });
 
 /* <--- --- --- --- --- ---| */
