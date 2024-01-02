@@ -2,6 +2,7 @@
 
 use App\Models\Sponsor;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +23,7 @@ Route::get('/', function () {
 
 /* Dynamic routing for webpages cretad in Filament */
 
-Route::get('{slug}', function ($slug) {
-    $page = \App\Models\Page::where('slug', $slug)->firstOrFail();
-    return view('pages.dynamic', ['page' => $page->name, 'title' => 'Growth 4 change - ' . $page->name]);
-});
+Route::get('{slug}', [PageController::class, 'show'])->name('page');
 
 /* <--- --- --- --- --- ---| */
 
