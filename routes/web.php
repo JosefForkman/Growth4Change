@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 /* The start page ---> */
 
 Route::get('/', function () {
-    return view('pages.index', ['page' => 'HOME/ABOUT', 'title' => 'Growth 4 change - About']);
+    $sponsors = Sponsor::all();
+    return view('pages.index', ['page' => 'HOME/ABOUT', 'title' => 'Growth 4 change - About', 'sponsors' => $sponsors]);
 });
 
 /* Dynamic routing for webpages cretad in Filament */
