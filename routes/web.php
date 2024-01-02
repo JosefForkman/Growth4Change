@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Page;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -16,7 +18,12 @@ use Inertia\Inertia;
 |
 */
 
-Route::inertia('/', 'Welcome');
+Route::get('/', function () {
+   $pageData = Page::all()->where('title', 'About')->first()['structure'];
+    return Inertia::render('Welcome', [
+        "pageData" => $pageData
+    ]);
+});
 
 
 
