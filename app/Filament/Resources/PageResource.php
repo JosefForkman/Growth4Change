@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Illuminate\Validation\Rule;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
@@ -26,10 +27,16 @@ class PageResource extends Resource
     {
         return $form
             ->schema([
-                Components\TextInput::make('name')
-                    ->autofocus()
-                    ->required(),
-                Components\TextInput::make('slug')->required(),
+                Components\Hidden::make('id'),
+                Components\TextInput::make('name')->autofocus()->required(),
+                Components\TextInput::make('slug')
+                    ->required(fn ($record) => $record && !$record->is_home),
+                Components\Checkbox::make('is_home')->default(false),
+                Components\Repeater::make('content_blocks')
+                    ->schema([
+                        Components\Textarea::make('content')->rows(3),
+                    ])
+                    ->label('Content Blocks'),
             ])
             ->columns(2);
     }
@@ -65,5 +72,20 @@ class PageResource extends Resource
             'create' => Pages\CreatePage::route('/create'),
             'edit' => Pages\EditPage::route('/{record}/edit'),
         ];
+    }
+
+    public static function validateRecord($record, $validator)
+    {
+        $rules = [
+            'name' => 'required',
+            'slug' => Rule::unique('pages', 'slug')->ignore($record->id),
+            'is_home' => 'boolean',
+        ];
+
+        if (!$record->is_home) {
+            $rules['slug'] .= '|required';
+        }
+
+        $validator->validate($rules);
     }
 }
