@@ -8,8 +8,6 @@
             src="{{ $sponsor->getFirstMediaUrl() }}"
             alt="{{ $sponsor->name }}"
             class="object-cover snap-center" />
-        @else
-            <h3 class="font-bold text-center text-2xl self-center snap-center">{{ $sponsor->name }}</h3>
         @endif
         @endforeach
     </div>
