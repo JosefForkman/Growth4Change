@@ -3,14 +3,16 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Sponsor as ModelsSponsor;
+use Livewire\Attributes\Computed;
 
 class Sponsor extends Component
 {
-    public int $Count = 0;
 
-    public function add()
+    #[Computed]
+    public function sponsors()
     {
-        $this->Count = $this->Count += 1;
+        return ModelsSponsor::all();
     }
     public function render()
     {
