@@ -1,32 +1,32 @@
 <section class="flex flex-col gap-y-2" aria-labelledby="carouselheading">
     {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
     <h2 id="carouselheading" class="text-4xl font-heading text-growthgreen xl:text-6xl">Changemakers</h2>
-    <ul class="flex gap-x-11 overflow-x-auto h-32">
+    <ul class="flex gap-x-11 overflow-x-scroll h-32">
     @foreach ($this->sponsors as $sponsor)
     @if ($sponsor->getFirstMediaUrl())
-    <img
-        src="{{ $sponsor->getFirstMediaUrl() }}"
-        alt="{{ $sponsor->name }}"
-        class="object-cover" />
-        <li class="h-32">
-        </li>
-        <li class="h-32">
-            <img
-                src="{{ $sponsor->getFirstMediaUrl() }}"
-                alt="{{ $sponsor->name }}"
-                class="object-cover" />
-        </li>
-        <li class="h-32">
+        <li class="h-32 flex-grow">
             <img
                 src="{{ $sponsor->getFirstMediaUrl() }}"
                 alt="{{ $sponsor->name }}"
                 class="h-full object-cover" />
         </li>
-        <li class="h-32">
+        <li class="h-32 flex-grow">
             <img
                 src="{{ $sponsor->getFirstMediaUrl() }}"
                 alt="{{ $sponsor->name }}"
-                class="object-cover" />
+                class="h-full object-cover" />
+        </li>
+        <li class="h-32 flex-grow">
+            <img
+                src="{{ $sponsor->getFirstMediaUrl() }}"
+                alt="{{ $sponsor->name }}"
+                class="h-full object-cover" />
+        </li>
+        <li class="h-32 flex-grow">
+            <img
+                src="{{ $sponsor->getFirstMediaUrl() }}"
+                alt="{{ $sponsor->name }}"
+                class="h-full object-cover h-32" />
         </li>
 
     @endif
