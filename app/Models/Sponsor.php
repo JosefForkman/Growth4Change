@@ -26,6 +26,5 @@ class Sponsor extends Model implements HasMedia
         'name',
         'image',
         'link',
-        'description',
     ];
 }
