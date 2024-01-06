@@ -34,8 +34,6 @@ class SponsorResource extends Resource
                     ->required(),
                 TextInput::make('link')
                     ->placeholder('Link'),
-                RichEditor::make('description')
-                    ->placeholder('Description')->columnSpan(2),
                 SpatieMediaLibraryFileUpload::make('image')
                     ->image()
                     ->imageEditor()
