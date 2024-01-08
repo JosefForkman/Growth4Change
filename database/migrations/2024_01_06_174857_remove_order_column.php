@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::table('pages', function (Blueprint $table) {
 
-            $table->string('slug')->nullable()->change();
-            // $table->boolean('is_homepage')->default(false);
+            $table->dropColumn('order');
         });
     }
 
@@ -24,9 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('pages', function (Blueprint $table) {
-
-            $table->string('slug')->nullable(false)->change();
-            // $table->dropColumn('is_homepage');
+            //
         });
     }
 };

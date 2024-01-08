@@ -15,6 +15,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\Pages\EditRecord;
 
 class PageResource extends Resource
 {
@@ -27,9 +28,12 @@ class PageResource extends Resource
         return $form
             ->schema([
                 Components\TextInput::make('name')
+                    ->placeholder('The name of the page')
                     ->autofocus()
                     ->required(),
-                Components\TextInput::make('slug')->required(),
+                Components\TextInput::make('slug')
+                    ->placeholder('The slug in lower case and dashes, e.g. resources or food-is-politics')
+                    ->required(),
             ])
             ->columns(2);
     }
