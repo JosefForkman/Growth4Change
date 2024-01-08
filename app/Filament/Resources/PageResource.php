@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Resources\Pages\EditRecord;
 
+
 class PageResource extends Resource
 {
     protected static ?string $model = Page::class;

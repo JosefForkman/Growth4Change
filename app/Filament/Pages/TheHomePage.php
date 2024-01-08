@@ -50,7 +50,7 @@ class TheHomePage extends Page implements HasForms
         return [];
     }
 
-    public function save()
+    public function save(): void
     {
         $this->validate([
             'name' => 'required',
