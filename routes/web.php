@@ -19,10 +19,6 @@ use App\Models\HomePage;
 
 /* The start page ---> */
 
-// Route::get('/', function () {
-//     return view('pages.index', ['page' => 'HOME/ABOUT', 'title' => 'Growth 4 change - About']);
-// });
-
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /* Dynamic routing for webpages cretad in Filament */
