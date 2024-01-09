@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Forms\Components;
@@ -13,8 +12,12 @@ use Filament\Tables\Columns;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Forms\Set;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Resources\Pages\EditRecord;
+
 
 class PageResource extends Resource
 {
@@ -27,9 +30,18 @@ class PageResource extends Resource
         return $form
             ->schema([
                 Components\TextInput::make('name')
+                    ->placeholder('The name of the page')
                     ->autofocus()
-                    ->required(),
-                Components\TextInput::make('slug')->required(),
+                    ->required()
+                    ->maxLength(255)
+                    ->live()
+                    ->afterStateUpdated(function (Set $set, $state) {
+                        $set('slug', Str::slug($state));
+                    }),
+                Components\TextInput::make('slug')
+                    ->placeholder('The slug in lower case and dashes, e.g. resources or food-is-politics')
+                    ->required()
+                    ->maxLength(255),
             ])
             ->columns(2);
     }

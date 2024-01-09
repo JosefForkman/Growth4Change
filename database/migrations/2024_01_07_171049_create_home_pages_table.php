@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sponsors', function (Blueprint $table) {
+        Schema::create('home_pages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('link')->nullable();
-            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sponsors');
+        Schema::dropIfExists('home_pages');
     }
 };

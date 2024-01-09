@@ -46,6 +46,6 @@
     <img
         src='assets/Resurs-1-8.png'
         alt="Growth4change logo"
-        class="w-64 md:justify-self-end xl:row-span-2 xl:row-start-1 xl:col-start-3">
+        class="w-[200px] sm:w-[225px] md:w-[250px] lg:w-[275px] object-contain h-full md:justify-self-end xl:row-span-2 xl:row-start-1 xl:col-start-3">
     <p class="font-body text-lg md:text-xl xl:text-2xl text-growthlightgrey md:col-span-3 justify-self-center">© Growth4change Est. 2019. All Rights to Reserved.</p>
 </footer>
