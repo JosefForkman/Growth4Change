@@ -1,84 +1,91 @@
-# voices4change
+# Growth4change
+This webbsite is is a school project for the
+course [LIA](https://www.yrgo.se/studera-pa-yh/larande-i-arbete-lia-praktik/).  
+This is the website for Growth4Change. It is built
+with [Laravel](https://laravel.com), [Tailwind](https://tailwindcss.com) and [Filament CMS](https://filamentphp.com/).
+You can reda about Growth4Change below or see on the [webbsite](https://growth4change.net).
 
-## growth4change
+## What we do
 
-### Documentation
+Growth4Change unites changemakers to ghetto engineer innovative solutions for urban transformation. Together we grow
+stronger communities through ecosystem restoration and urban acupuncture.
 
-#### Issues
+## Where we work
 
--   Add and set these values to "false" in settings.json if Intelephense throws the "undefined" error on all types, varibles and functions:
+Growth4Change operates in low-income urban and peri-urban neighbourhoods and informal settlements in Kenya.
 
+The areas are typically overcrowded and lack essential services like proper sanitation, clean water, and electricity.
+There's no effective waste management, causing environmental degradation and human rights violations. Hunger pushes
+young men and women into crime and prostitution as they struggle with scarce resources and limited opportunities.
+
+Hidden within these areas are valuable assets often overlooked or underutilised. Among these are the creativity, skills,
+and dedication of the youth to transform their communities. Innovative solutions, practices, and untapped resources lie
+waiting to be discovered and ghetto engineered.
+
+## Documentation
+
+To run this project locally, you need to have the following installed and running on your machine:
+
+1. Clone the repo
+2. Run `composer install`
+3. Run `npm install`
+4. Set up a database and add the credentials to the .env file
+    - Run  `cp .env.example .env`
+    - If you want to use SQLite, make a database.sqlite file in the database folder and add the following to the
+      .env file:
+   ```
+    DB_CONNECTION=sqlite
+    DB_DATABASE=/absolute/path/to/database.sqlite
+    DB_FOREIGN_KEYS=true
     ```
-    "intelephense.diagnostics.undefinedTypes": false,
-    "intelephense.diagnostics.undefinedFunctions": false,
-    "intelephense.diagnostics.undefinedMethods": false,
-    ```
+5. Run `php artisan migrate`
+6. Make a Filament user by running `php artisan filament:user` and follow the instructions
+7. Run `php artisan serve`
+8. Run `npm run dev`
+9. Go to [localhost:8000](http://localhost:8000) in your browser
 
--   In order to make image upload work in Filament during development, add the path to your local host in the .env file:
-    `APP_URL=http://127.0.0.1:8000` (Replace with your actual path). The run `php artisan storage:link`.
+## Design
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+We use [Tailwind](https://tailwindcss.com) CSS for styling. Whay we use Tailwind is because Filament CMS uses it and we
+want to keep the same design language.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The design principles can you find in the [Design philosophy.md](Design%20philosophy.md) file. There you can
+also find the color palette, what icon pack we use and the fonts we use.
 
-## About Laravel
+### Issues
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+We had som issues
+with [Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client) in VS Code
+and [Filament CMS](https://filamentphp.com/). Her are some tips to get it working. If you run into any issues, try the
+following:
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Add and set these values to "false" in settings.json if Intelephense throws the "undefined" error on all types,
+  varibles and functions:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  ```
+  "intelephense.diagnostics.undefinedTypes": false,
+  "intelephense.diagnostics.undefinedFunctions": false,
+  "intelephense.diagnostics.undefinedMethods": false,
+  ```
 
-## Learning Laravel
+- In order to make image upload work in Filament during development, add the path to your local host in the .env file:
+  `APP_URL=http://127.0.0.1:8000` (Replace with your actual path). The run `php artisan storage:link`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## The people behind this project are
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[WebReinvent](https://webreinvent.com/)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[DevSquad](https://devsquad.com/hire-laravel-developers)**
--   **[Jump24](https://jump24.co.uk)**
--   **[Redberry](https://redberry.international/laravel/)**
--   **[Active Logic](https://activelogic.com)**
--   **[byte5](https://byte5.de)**
--   **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- [JosefForkman](https://github.com//JosefForkman)
+- [MagnusVV](https://github.com/MagnusVV)
+- [TGKElit](https://github.com/TGKElit)
 
 ## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+In order to ensure that the Laravel community is welcoming to all, please review and abide by
+the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell
+via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
