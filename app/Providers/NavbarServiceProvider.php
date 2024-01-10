@@ -22,7 +22,7 @@ class NavbarServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $homePage = HomePage::first();
+        $homePage = HomePage::first() ?? new HomePage(['name' => 'About']);
         View::share(['pages' => Page::all(), 'homePage' => $homePage]);
     }
 }

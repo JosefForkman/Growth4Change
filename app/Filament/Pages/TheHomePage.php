@@ -8,6 +8,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\Page;
 use Filament\Pages\Actions\Actions;
+use Filament\Notifications\Notification;
 use App\Models\HomePage;
 
 class TheHomePage extends Page implements HasForms
@@ -23,7 +24,7 @@ class TheHomePage extends Page implements HasForms
     public function mount()
     {
         // Get the current name from the database
-        $currentName = HomePage::first()->name;
+        $currentName = HomePage::first()?->name ?? 'About';
 
         // Set the initial value of the $name property
         $this->name = $currentName;
@@ -52,12 +53,27 @@ class TheHomePage extends Page implements HasForms
 
     public function save(): void
     {
-        $this->validate([
-            'name' => 'required',
-        ]);
+        try {
+            $this->validate([
+                'name' => 'required',
+            ]);
 
-        $record = HomePage::first();
-        $record->name = $this->name;
-        $record->save();
+            $record = HomePage::first() ?? new HomePage(['name' => 'About']);
+            $record->name = $this->name;
+            $record->save();
+
+            // Send a success notification
+            Notification::make()
+                ->title('Saved successfully')
+                ->success()
+                ->send();
+        } catch (\Exception $e) {
+            // Send a failure notification
+            Notification::make()
+                ->title('Save failed')
+                ->danger()
+                ->body($e->getMessage())
+                ->send();
+        }
     }
 }
