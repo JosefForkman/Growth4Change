@@ -44,6 +44,29 @@ To run this project locally, you need to have the following installed and runnin
 8. Run `npm run dev`
 9. Go to [localhost:8000](http://localhost:8000) in your browser
 
+### Seeding
+- Run `php artisan db:seed` to seed the database with dummy data
+
+You get a test user with the following credentials:
+
+``` 
+Email:test@example.com
+Password:password
+```
+With following credentials you can login to the admin panel at [localhost:8000/admin](http://localhost:8000/admin) and control the content of the website.
+
+### Filament CMS page builder
+1. Go to [localhost:8000/admin](http://localhost:8000/admin) and login with your credentials
+2. Go to Pages in the sidebar
+3. Click on the page you want to edit or create a new one. All pages you create will be added to the navigation bar.
+4. Click on the plus sign to add a block. _**Note this is not implemented yet, so you can't add any blocks for now.**_
+5. Navigate to the page you created in the navigation bar, and you will see the content you added.
+
+#### Add a new block to the page builder
+1. Make a new component with `php artisan make:component ComponentName` or make a livewire component with `php artisan make:livewire ComponentName`.
+   1. Be sure to add all the properties you need to the component in the controller.
+3. Make a new block in the `app/Filament/Resources/Pages with [Builder](https://filamentphp.com/docs/3.x/forms/fields/builder) and all the fileds you need. The fields should be the same as the properties in the component.
+
 ## Design
 
 We use [Tailwind](https://tailwindcss.com) CSS for styling. Whay we use Tailwind is because Filament CMS uses it and we
