@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $homePage = HomePage::first() ?? new HomePage(['name' => 'About']);
+        $homePage = HomePage::all()->first() ?? HomePage::create(['name' => 'About']);
         return view('pages.dynamic', ['page' => $homePage->name, 'title' => 'Growth 4 change - ' . $homePage->name, 'homePage' => $homePage]);
     }
 }

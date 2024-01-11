@@ -21,10 +21,10 @@ class TheHomePage extends Page implements HasForms
 
     protected static string $view = 'filament.pages.the-home-page';
 
-    public function mount()
+    public function mount(): void
     {
         // Get the current name from the database
-        $currentName = HomePage::first()?->name ?? 'About';
+        $currentName = HomePage::all()->first()?->name ?? 'About';
 
         // Set the initial value of the $name property
         $this->name = $currentName;
@@ -58,7 +58,7 @@ class TheHomePage extends Page implements HasForms
                 'name' => 'required',
             ]);
 
-            $record = HomePage::first() ?? new HomePage(['name' => 'About']);
+            $record = HomePage::all()->first() ?? new HomePage(['name' => 'About']);
             $record->name = $this->name;
             $record->save();
 
