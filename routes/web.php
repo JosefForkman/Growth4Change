@@ -3,6 +3,8 @@
 use App\Models\Sponsor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
+use App\Models\HomePage;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +19,10 @@ use App\Http\Controllers\PageController;
 
 /* The start page ---> */
 
-Route::get('/', function () {
-    return view('pages.index', ['page' => 'HOME/ABOUT', 'title' => 'Growth 4 change - About']);
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 /* Dynamic routing for webpages cretad in Filament */
 
 Route::get('{slug}', [PageController::class, 'show'])->name('page');
 
 /* <--- --- --- --- --- ---| */
-
-Route::get('home', function () {
-    $sponsors = Sponsor::all();
-    return view('home', ['sponsors' => $sponsors]);
-});
