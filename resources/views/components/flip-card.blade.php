@@ -1,5 +1,5 @@
 <article
-    class="rounded-lg w-[500px] flex flex-col justify-between bg-growthdarkgrey"
+    class="rounded-lg w-[26vw] flex flex-col justify-between bg-growthdarkgrey"
     aria-labelledby='title'>
     <img class="w-full h-1/2" src="{{asset('assets/Resurs-1-8.png')}}" alt="Thumbnail Image">
 
@@ -23,6 +23,6 @@
             Sed sed fringilla mauris, in laoreet nunc. Morbi sagittis tortor metus. Morbi porttitor laoreet rutrum.
         </p>
         <button class="bg-growthgreen rounded text-white p-2 w-32">READ MORE</button>
+        <button class="invisible bg-growthgreen rounded text-white p-2 w-32">READ LESS</button>
     </div>
-    <!--<button class="invisible bg-growthgreen rounded text-white p-2 w-32">READ LESS</button>-->
 </article>
