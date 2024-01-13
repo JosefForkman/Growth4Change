@@ -169,6 +169,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\Filament\AdminPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
+        /*
+        * Custom Service Providers...
+        */
+        \App\Providers\NavbarServiceProvider::class,
     ])->toArray(),
 
     /*
