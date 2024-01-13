@@ -19,7 +19,6 @@ class SponsorFactory extends Factory
         return [
             'name' => fake()->name(),
             'link' => fake()->url(),
-            'description' => fake()->paragraph(),
         ];
     }
 }
