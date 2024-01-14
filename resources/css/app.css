@@ -5,6 +5,14 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@layer components {
+  .card-body-row {
+    grid-template-rows: auto auto 0fr;
+  }
+  .card-body-row-active {
+    grid-template-rows: auto auto 1fr;
+  }
+}
 
 /* footer {
     grid-template-columns: auto auto auto;
