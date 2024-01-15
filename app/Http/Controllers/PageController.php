@@ -10,6 +10,6 @@ class PageController extends Controller
     public function show($slug)
     {
         $page = Page::where('slug', $slug)->firstOrFail();
-        return view('pages.dynamic', ['page' => $page->name, 'title' => 'Growth 4 change - ' . $page->name]);
+        return view('pages.dynamic', ['page' => $page->name, 'title' => 'Growth 4 change - ' . $page->name, 'contents' => $page->content]);
     }
 }

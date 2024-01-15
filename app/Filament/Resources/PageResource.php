@@ -5,16 +5,19 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Forms\Components;
 use Filament\Tables\Columns;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Builder;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Set;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Resources\Pages\EditRecord;
 
@@ -29,7 +32,7 @@ class PageResource extends Resource
     {
         return $form
             ->schema([
-                Components\TextInput::make('name')
+                TextInput::make('name')
                     ->placeholder('The name of the page')
                     ->autofocus()
                     ->required()
@@ -38,10 +41,28 @@ class PageResource extends Resource
                     ->afterStateUpdated(function (Set $set, $state) {
                         $set('slug', Str::slug($state));
                     }),
-                Components\TextInput::make('slug')
+                TextInput::make('slug')
                     ->placeholder('The slug in lower case and dashes, e.g. resources or food-is-politics')
                     ->required()
                     ->maxLength(255),
+
+
+                Builder::make('content')
+                    ->label('body')
+                    ->schema([
+                        Builder\Block::make('Text Block')
+                            ->schema([
+                                TextInput::make('Heading')
+                                    ->required(),
+                                Components\SpatieMediaLibraryFileUpload::make('Image'),
+                                Repeater::class::make('Description')
+                                    ->helperText('Add a description')
+                                    ->schema([
+                                        Textarea::make('Description')
+                                        ->required()
+                                    ])
+                            ]),
+                    ]),
             ])
             ->columns(2);
     }
