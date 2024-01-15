@@ -1,15 +1,20 @@
 <section class="bg-growthdarkgrey p-10 pt-6 rounded-2xl">
     <h2 class="text-4xl font-heading text-growthgreen md:text-4xl xl:text-6xl">How we make a difference</h2>
-    <div class="overflow-scroll mt-4 mb-20">
+    <div class="overflow-x-auto mt-4 mb-20">
         <div class="flex flex-row gap-14 w-fit">
+
+            @foreach ($cards as $card)
+                <x-flip-card :image="$card['image']" :title="$card['title']" :shortDescription="$card['shortDescription']" :extendedDescription="$card['extendedDescription']"/>
+            @endforeach
+
+            {{-- <x-flip-card/>
             <x-flip-card/>
             <x-flip-card/>
-            <x-flip-card/>
-            <x-flip-card/>
+            <x-flip-card/> --}}
         </div>
     </div>
     <div class="w-fit m-auto flex flex-row items-center gap-4">
-        
+
         <button class="w-6 h-6 bg-growthlightgrey rounded-full"></button>
         <button class="w-6 h-6 bg-growthlightgrey rounded-full"></button>
 
