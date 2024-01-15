@@ -2,5 +2,4 @@
 
 @section('content')
     <p class='font-body text-2xl'>This is the {{$page}} page</p>
-
 @stop
