@@ -1,20 +1,17 @@
 @extends('layouts.default')
 
 @section('content')
-    <p class='font-body text-2xl'>This is the {{ $page }} page</p>
-    @foreach ($contents as $content)
+    <p class='font-body text-2xl'>This is the {{$page}} page</p>
+    @if($contents)
+        @foreach($contents as $content) @endforeach
         @switch($content['type'])
-            @case('Text Block')
-                @php($texts = array_map(function ($text) {
-                    return $text["Description"];
-                }, $content['data']['Description']));
-
-                <x-TextContiner :title='$content["data"]["Heading"]' :texts='$texts'></x-TextContiner>
+            @case("Text Block")
+                <x-TextContiner :title="$content['title']" :texts="$content['texts']" :image="$content['image']" :alt="$content['alt']" :ImageRight="$content['ImageRight']" />
                 @break
-
             @default
-                <livewire:Changemaker />
-                <p class='font-body text-2xl'>{{ $content['content'] }}</p>
+                <p>Default values</p>
         @endswitch
-    @endforeach
+    @endif
+    <livewire:Changemaker />
+{{--    @dd($content)--}}
 @stop

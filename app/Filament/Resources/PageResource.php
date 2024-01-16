@@ -5,7 +5,10 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -49,17 +52,27 @@ class PageResource extends Resource
 
                 Builder::make('content')
                     ->label('body')
+                    ->columnSpan(2)
                     ->schema([
                         Builder\Block::make('Text Block')
                             ->schema([
                                 TextInput::make('Heading')
                                     ->required(),
-                                Components\SpatieMediaLibraryFileUpload::make('Image'),
+                                Section::make('Image')
+                                    ->description('Add an image for this Text Block')
+                                    ->schema([
+                                        SpatieMediaLibraryFileUpload::make('Image'),
+                                        TextInput::make('Alt')
+                                            ->placeholder('The alt text for the image')
+                                            ->maxLength(255),
+                                        Checkbox::make('ImageRight')
+                                            ->helperText('Check this box if you want the image to be on the right side of the text')
+                                    ]),
                                 Repeater::class::make('Description')
                                     ->helperText('Add a description')
                                     ->schema([
                                         Textarea::make('Description')
-                                        ->required()
+                                            ->required()
                                     ])
                             ]),
                     ]),
