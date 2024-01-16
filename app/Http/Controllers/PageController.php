@@ -12,19 +12,26 @@ class PageController extends Controller
         $page = Page::all()->where('slug', $slug)->firstOrFail();
 
         $contents = array_map(function ($item) use ($page) {
-            $texts = array_map(function ($item) {
-                return $item["Description"];
-            }, $item['data']['Description']);
+            if ($item['type'] === "Text Block") {
+                $texts = array_map(function ($item) {
+                    return $item["Description"];
+                }, $item['data']['Description']);
 
-//            dd($item);
-            return [
-                'type' => $item['type'],
-                'title' => $item['data']['Heading'],
-                'texts' => $texts,
-                'image' => $page->getFirstMediaUrl(),
-                'alt' => $item['data']['Alt'],
-                'ImageRight' => $item['data']['ImageRight'],
-            ];
+                return [
+                    'type' => $item['type'],
+                    'title' => $item['data']['Heading'],
+                    'texts' => $texts,
+                    'image' => $page->getFirstMediaUrl(),
+                    'alt' => $item['data']['Alt'],
+                    'ImageRight' => $item['data']['ImageRight'],
+                ];
+            }elseif ($item['type'] === "Changemakers") {
+                return [
+                    'type' => $item['type'],
+                ];
+            }
+
+            return $item;
         }, $page->content);
 
         return view('pages.dynamic', array(

@@ -6,12 +6,15 @@
         @foreach($contents as $content) @endforeach
         @switch($content['type'])
             @case("Text Block")
-                <x-TextContiner :title="$content['title']" :texts="$content['texts']" :image="$content['image']" :alt="$content['alt']" :ImageRight="$content['ImageRight']" />
+                <x-TextContiner :title="$content['title']" :texts="$content['texts']" :image="$content['image']"
+                                :alt="$content['alt']" :ImageRight="$content['ImageRight']" />
+                @break
+            @case("Changemakers")
+                <livewire:Changemaker />
                 @break
             @default
                 <p>Default values</p>
         @endswitch
     @endif
-    <livewire:Changemaker />
-{{--    @dd($content)--}}
+    {{--    @dd($content)--}}
 @stop
