@@ -173,6 +173,7 @@ return [
         * Custom Service Providers...
         */
         \App\Providers\NavbarServiceProvider::class,
+        \App\Providers\HelperServiceProvider::class
     ])->toArray(),
 
     /*

@@ -2,6 +2,8 @@
 
 namespace App\Filament\Pages;
 
+use App\Helpers\Filament;
+use App\Helpers\PageBilder;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Form;
@@ -43,6 +45,7 @@ class TheHomePage extends Page implements HasForms
                 ->placeholder('The name of the Home Page, e.g. About')
                 ->autofocus()
                 ->required(),
+            Filament::PageForm()
         ];
     }
 

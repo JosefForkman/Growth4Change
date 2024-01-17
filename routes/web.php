@@ -1,10 +1,8 @@
 <?php
 
-use App\Models\Sponsor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
-use App\Models\HomePage;
 
 /*
 |--------------------------------------------------------------------------

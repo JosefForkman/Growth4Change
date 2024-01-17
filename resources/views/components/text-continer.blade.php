@@ -7,9 +7,9 @@
             <img src="{{ $image }}" alt="{{ $alt }}" class="w-full mb-4 md:row-span-12" />
 
         @endif
-        <h2 class="text-4xl font-heading text-growthgreen xl:text-6xl">Our manifesto</h2>
+        <h2 class="text-4xl font-heading text-growthgreen xl:text-6xl">{{ $title }}</h2>
     @else
-        <h2 class="text-4xl font-heading text-growthgreen col-span-full xl:text-6xl">Our manifesto</h2>
+        <h2 class="text-4xl font-heading text-growthgreen col-span-full xl:text-6xl">{{ $title }}</h2>
     @endif
 
 

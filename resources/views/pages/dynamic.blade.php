@@ -2,8 +2,8 @@
 
 @section('content')
     <p class='font-body text-2xl'>This is the {{$page}} page</p>
-    @if($contents)
-        @foreach($contents as $content) @endforeach
+
+    @foreach($contents as $content)
         @switch($content['type'])
             @case("Text Block")
                 <x-TextContiner :title="$content['title']" :texts="$content['texts']" :image="$content['image']"
@@ -15,6 +15,5 @@
             @default
                 <p>Default values</p>
         @endswitch
-    @endif
-    {{--    @dd($content)--}}
+    @endforeach
 @stop

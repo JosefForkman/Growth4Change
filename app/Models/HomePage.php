@@ -9,7 +9,11 @@ class HomePage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'content'];
 
     protected $table = 'home_pages';
+
+    protected $casts = [
+        'content' => 'array',
+    ];
 }
