@@ -1,16 +1,16 @@
 # Growth4change
 This webbsite is is a school project for the
 course [LIA](https://www.yrgo.se/studera-pa-yh/larande-i-arbete-lia-praktik/).  
-This is the website for Growth4Change. It is built
+This is the website for [Growth4Change](https://growth4change.net/). It is built
 with [Laravel](https://laravel.com), [Tailwind](https://tailwindcss.com) and [Filament CMS](https://filamentphp.com/).
 You can reda about Growth4Change below or see on the [webbsite](https://growth4change.net).
 
-## What we do
+## What Growth4change do
 
 Growth4Change unites changemakers to ghetto engineer innovative solutions for urban transformation. Together we grow
 stronger communities through ecosystem restoration and urban acupuncture.
 
-## Where we work
+## Where Growth4change work
 
 Growth4Change operates in low-income urban and peri-urban neighbourhoods and informal settlements in Kenya.
 
@@ -99,16 +99,6 @@ following:
 - [JosefForkman](https://github.com//JosefForkman)
 - [MagnusVV](https://github.com/MagnusVV)
 - [TGKElit](https://github.com/TGKElit)
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by
-the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell
-via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
