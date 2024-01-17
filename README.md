@@ -1,9 +1,9 @@
 # Growth4change
-This webbsite is is a school project for the
-course [LIA](https://www.yrgo.se/studera-pa-yh/larande-i-arbete-lia-praktik/).  
+
+This is a school project for the [LIA](https://www.yrgo.se/studera-pa-yh/larande-i-arbete-lia-praktik/) course at Yrgo.  
 This is the website for [Growth4Change](https://growth4change.net/). It is built
-with [Laravel](https://laravel.com), [Tailwind](https://tailwindcss.com) and [Filament CMS](https://filamentphp.com/).
-You can reda about Growth4Change below or see on the [webbsite](https://growth4change.net).
+using [Laravel](https://laravel.com) framework, [Tailwind](https://tailwindcss.com) css and [Filament CMS](https://filamentphp.com/) component library.
+You can read about Growth4Change below and on the [website](https://growth4change.net).
 
 ## What Growth4change do
 
@@ -30,14 +30,14 @@ To run this project locally, you need to have the following installed and runnin
 2. Run `composer install`
 3. Run `npm install`
 4. Set up a database and add the credentials to the .env file
-    - Run  `cp .env.example .env`
-    - If you want to use SQLite, make a database.sqlite file in the database folder and add the following to the
-      .env file:
+   - Run `cp .env.example .env`
+   - If you want to use SQLite, make a database.sqlite file in the database folder and add the following to the
+     .env file:
    ```
     DB_CONNECTION=sqlite
     DB_DATABASE=/absolute/path/to/database.sqlite
     DB_FOREIGN_KEYS=true
-    ```
+   ```
 5. Run `php artisan migrate`
 6. Make a Filament user by running `php artisan filament:user` and follow the instructions
 7. Run `php artisan serve`
@@ -45,17 +45,20 @@ To run this project locally, you need to have the following installed and runnin
 9. Go to [localhost:8000](http://localhost:8000) in your browser
 
 ### Seeding
+
 - Run `php artisan db:seed` to seed the database with dummy data
 
 You get a test user with the following credentials:
 
-``` 
+```
 Email:test@example.com
 Password:password
 ```
+
 With following credentials you can login to the admin panel at [localhost:8000/admin](http://localhost:8000/admin) and control the content of the website.
 
 ### Filament CMS page builder
+
 1. Go to [localhost:8000/admin](http://localhost:8000/admin) and login with your credentials
 2. Go to Pages in the sidebar
 3. Click on the page you want to edit or create a new one. All pages you create will be added to the navigation bar.
@@ -63,9 +66,10 @@ With following credentials you can login to the admin panel at [localhost:8000/a
 5. Navigate to the page you created in the navigation bar, and you will see the content you added.
 
 #### Add a new block to the page builder
+
 1. Make a new component with `php artisan make:component ComponentName` or make a livewire component with `php artisan make:livewire ComponentName`.
    1. Be sure to add all the properties you need to the component in the controller.
-3. Make a new block in the `app/Filament/Resources/Pages with [Builder](https://filamentphp.com/docs/3.x/forms/fields/builder) and all the fileds you need. The fields should be the same as the properties in the component.
+2. Make a new block in the `app/Filament/Resources/Pages with [Builder](https://filamentphp.com/docs/3.x/forms/fields/builder) and all the fileds you need. The fields should be the same as the properties in the component.
 
 ## Design
 
@@ -73,14 +77,13 @@ We use [Tailwind](https://tailwindcss.com) CSS for styling. Whay we use Tailwind
 want to keep the same design language.
 
 The design principles can you find in the [Design philosophy.md](Design%20philosophy.md) file. There you can
-also find the color palette, what icon pack we use and the fonts we use.
+also find the color palette, what icon pack is used and the used fonts.
 
 ### Issues
 
 We had som issues
 with [Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client) in VS Code
-and [Filament CMS](https://filamentphp.com/). Her are some tips to get it working. If you run into any issues, try the
-following:
+and [Filament CMS](https://filamentphp.com/). Here are some tips to get it working if you run into any issues:
 
 - Add and set these values to "false" in settings.json if Intelephense throws the "undefined" error on all types,
   varibles and functions:
